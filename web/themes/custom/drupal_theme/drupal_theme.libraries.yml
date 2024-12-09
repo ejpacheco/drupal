@@ -1,0 +1,10 @@
+articulos:
+ css:
+    theme:
+      css/estilos-articulos.css: {}
+      css/estilos-card-articulos.css: {}
+
+menu-page:
+ css:
+    theme:
+      css/estilos-menu.css: {}

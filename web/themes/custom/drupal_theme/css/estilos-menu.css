@@ -1,0 +1,57 @@
+.custom-menu-container {
+  padding: 20px;
+  background-color: #f4f4f4; /* Color de fondo del contenedor */
+  border-radius: 8px;
+}
+
+.custom-menu-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Hace que el menú sea horizontal */
+  gap: 15px; /* Espacio entre los elementos del menú */
+}
+
+.custom-menu-container li {
+  margin: 0; /* Elimina el margen vertical */
+}
+
+.custom-menu-container li a {
+  text-decoration: none;
+  color: #333; /* Color de los enlaces */
+  padding: 8px 12px;
+  display: block;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-menu-container li a:hover {
+  background-color: #ddd; /* Color de fondo al pasar el cursor */
+  color: #000;
+}
+
+/* Estilos para submenús */
+.custom-menu-container li ul {
+  display: none; /* Oculta los submenús por defecto */
+  position: absolute;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+  list-style-type: none;
+}
+
+/* Mostrar submenú al pasar el cursor */
+.custom-menu-container li:hover > ul {
+  display: block;
+}
+
+/* Alineación de elementos del submenú */
+.custom-menu-container li ul li {
+  margin: 0;
+}
+
+.custom-menu-container li ul li a {
+  padding: 5px 10px;
+  white-space: nowrap;
+}

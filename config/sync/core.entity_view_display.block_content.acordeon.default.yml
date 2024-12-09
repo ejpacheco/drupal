@@ -1,0 +1,25 @@
+uuid: 08e66fb1-2ed0-44c1-9cf3-b80ddae66579
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.acordeon
+    - field.field.block_content.acordeon.field_acordeon_item
+  module:
+    - entity_reference_revisions
+id: block_content.acordeon.default
+targetEntityType: block_content
+bundle: acordeon
+mode: default
+content:
+  field_acordeon_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

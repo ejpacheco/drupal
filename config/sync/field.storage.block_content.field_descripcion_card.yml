@@ -1,0 +1,19 @@
+uuid: ef30e901-d8f5-4536-b778-812bf5a29873
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_descripcion_card
+field_name: field_descripcion_card
+entity_type: block_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

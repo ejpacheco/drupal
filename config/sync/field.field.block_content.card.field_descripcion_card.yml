@@ -1,0 +1,19 @@
+uuid: df97a70f-59d4-46d4-b094-ffc8855b6990
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_descripcion_card
+id: block_content.card.field_descripcion_card
+field_name: field_descripcion_card
+entity_type: block_content
+bundle: card
+label: Descripcion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
