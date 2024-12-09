@@ -54,17 +54,6 @@ services:
     ports:
       - "${PROJECT_PORT}:80"  # Exponemos el puerto 80 para acceder a la aplicación
 
-  pma:
-    image: phpmyadmin/phpmyadmin
-    container_name: "${PROJECT_NAME}_pma"
-    environment:
-      PMA_HOST: $DB_HOST
-      PMA_USER: $DB_USER
-      PMA_PASSWORD: $DB_PASSWORD
-      UPLOAD_LIMIT: 1G
-    ports:
-       - "8084:80"  # Exponemos el puerto 8080 para phpMyAdmin
-
 
 # networks:
 #   dimar_network1:
