@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.noticias.body
+    - field.field.node.noticias.field_categoria
     - node.type.noticias
   module:
     - text
@@ -28,4 +29,5 @@ content:
     weight: 100
     region: content
 hidden:
+  field_categoria: true
   langcode: true

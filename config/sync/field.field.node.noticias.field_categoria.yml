@@ -1,0 +1,19 @@
+uuid: 96e7100b-1313-44d1-a7ca-8cd3d99b3f6f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categoria
+    - node.type.noticias
+id: node.noticias.field_categoria
+field_name: field_categoria
+entity_type: node
+bundle: noticias
+label: categoria
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

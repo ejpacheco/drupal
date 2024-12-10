@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.noticias.body
+    - field.field.node.noticias.field_categoria
     - node.type.noticias
   module:
     - text
@@ -19,6 +20,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_categoria:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     settings: {  }
