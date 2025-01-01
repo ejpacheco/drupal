@@ -5,16 +5,19 @@ dependencies:
   config:
     - node.type.page
   module:
+    - layout_builder
     - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
 _core:
   default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
-content:
-  links:
-    weight: 101
-    region: content
+content: {  }
 hidden:
   langcode: true
+  links: true
