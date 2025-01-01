@@ -1,5 +1,0 @@
-<?php
-
-function drupal_theme_preprocess_page(&$variables) {
-
-}

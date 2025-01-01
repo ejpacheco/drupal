@@ -1,9 +1,0 @@
-general:
- css:
-    theme:
-      css/main.css: {}
-      css/splide.css: {}
- js:
-    js/splide.min.js: {}
-    js/switch-splide.js: {}
-    js/acordeon.js: {}
