@@ -1,0 +1,22 @@
+uuid: 7c230788-f94d-4889-baa4-e85e24389f5b
+langcode: es
+status: true
+dependencies:
+  theme:
+    - dimar
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: dimar_secondary_local_tasks
+theme: dimar
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Solapas secundarias'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

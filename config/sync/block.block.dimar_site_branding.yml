@@ -1,0 +1,25 @@
+uuid: 8cdf4840-e821-4c70-9932-482e49c88090
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dimar
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: dimar_site_branding
+theme: dimar
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Marca del sitio'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

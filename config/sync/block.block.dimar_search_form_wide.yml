@@ -1,0 +1,23 @@
+uuid: 50fdfaf9-f963-42a0-9923-6a9a20af6a83
+langcode: es
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - dimar
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: dimar_search_form_wide
+theme: dimar
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Formulario de búsqueda (ancho)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

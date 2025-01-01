@@ -143,4 +143,3 @@ drush/*
 # Enviromennt load
 # load.environment.php
 .vscode/settings.json
-web/sites/terceros/settings.php
