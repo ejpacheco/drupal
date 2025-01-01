@@ -1,0 +1,28 @@
+@use "../../00-base/00-defaults/01-variables" as *;
+@use "../../00-base/00-defaults/03-mixins" as *;
+
+ul {
+  @include list-reset;
+
+  & {
+    list-style-type: disc;
+  }
+}
+
+ol {
+  @include list-reset;
+
+  & {
+    list-style-type: decimal;
+  }
+}
+
+.text-field {
+  li {
+    padding-left: $space;
+  }
+}
+
+.dl-term {
+  font-weight: bold;
+}

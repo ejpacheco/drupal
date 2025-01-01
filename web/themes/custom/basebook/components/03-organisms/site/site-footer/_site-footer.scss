@@ -1,0 +1,45 @@
+@use "../../../00-base/00-defaults/01-variables" as *;
+@use "../../../00-base/00-defaults/02-breakpoints" as *;
+@use "../../../00-base/00-defaults/03-mixins" as *;
+@use "../../../00-base/01-colors/colors" as *;
+
+.footer {
+  background-color: clr(neutral, n100);
+  padding: $space 0;
+}
+
+.footer__inner {
+  @include wrapper;
+
+  & {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+
+  @include breakpoint("large") {
+    flex-direction: row;
+  }
+}
+
+.footer__social {
+  margin-bottom: $space;
+
+  @include breakpoint("large") {
+    flex: 0 1 30%;
+    margin-bottom: 0;
+    margin-right: $space;
+  }
+}
+
+.footer__menu {
+  @include breakpoint("large") {
+    flex: 1 1 100%;
+    margin-left: auto;
+    text-align: right;
+  }
+}
+
+.footer__branding {
+  max-width: 10rem;
+}

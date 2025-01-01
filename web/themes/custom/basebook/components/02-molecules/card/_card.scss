@@ -1,0 +1,44 @@
+@use "../../00-base/00-defaults/01-variables" as *;
+@use "../../00-base/00-defaults/03-mixins" as *;
+@use "../../00-base/01-colors/colors" as *;
+@use "../../01-atoms/buttons/buttons" as *;
+@use "../../01-atoms/links/link/link" as *;
+@use "../../01-atoms/text/headings/headings" as *;
+
+.card__heading {
+  @include heading-large($font-size: 1.3rem);
+  @include no-bottom;
+
+  &-link {
+    @include link;
+  }
+}
+
+.card__subheading {
+  @include heading-medium($font-size: 1rem);
+  @include no-bottom;
+
+  & {
+    color: clr(text);
+  }
+}
+
+.card__body {
+  margin: 0.7rem 0 $space;
+}
+
+.card__link {
+  @include link;
+}
+
+.card__button {
+  @include button-base;
+  @include button-color-primary;
+  @include button-medium;
+}
+
+/* Variations */
+.card--bg {
+  background-color: clr(highlight, bright);
+  padding: $space;
+}

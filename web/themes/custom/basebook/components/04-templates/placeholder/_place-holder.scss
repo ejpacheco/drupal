@@ -1,0 +1,18 @@
+@use "../../00-base/00-defaults/01-variables" as *;
+@use "../../00-base/01-colors/colors" as *;
+
+.place-holder {
+  color: clr(neutral, n200);
+  border: 4px dashed clr(neutral, n200);
+  padding: $space-triple + $space-one-eighth;
+
+  &__content {
+    font-size: 3.2rem;
+    line-height: 1.4;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

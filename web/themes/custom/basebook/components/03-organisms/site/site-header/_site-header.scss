@@ -1,0 +1,37 @@
+@use "../../../00-base/00-defaults/01-variables" as *;
+@use "../../../00-base/00-defaults/02-breakpoints" as *;
+@use "../../../00-base/00-defaults/03-mixins" as *;
+@use "../../../00-base/01-colors/colors" as *;
+
+.header {
+  margin-bottom: $space-quadruple;
+}
+
+.header__inner {
+  @include wrapper;
+
+  & {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
+.header__primary {
+  @include breakpoint("medium") {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: $space 0;
+  }
+}
+
+.header__branding {
+  max-width: 190px;
+  padding: 1rem 0;
+
+  @include breakpoint("medium") {
+    margin-right: $space;
+    max-width: 300px;
+    padding: 0;
+  }
+}

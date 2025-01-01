@@ -1,0 +1,13 @@
+@use "../../../00-base/01-colors/colors" as *;
+
+@mixin link {
+  color: clr(accent);
+
+  &:hover {
+    color: clr(accent, bright);
+  }
+}
+
+.link {
+  @include link;
+}

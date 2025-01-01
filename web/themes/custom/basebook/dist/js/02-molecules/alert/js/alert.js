@@ -1,0 +1,8 @@
+/******/ (() => { // webpackBootstrap
+/*!************************************************!*\
+  !*** ./components/02-molecules/alert/alert.js ***!
+  \************************************************/
+Drupal.behaviors.alert={attach:function(a){var b=a.querySelector("body"),c=a.querySelectorAll(".alert"),d="data-alert-state",e="aria-expanded",f=function(a,b,c){a.setAttribute(d,"expanded"),b.setAttribute(e,"true"),localStorage.setItem(c,"expanded")},g=function(a,b,c){a.setAttribute(d,"collapsed"),b.setAttribute(e,"false"),localStorage.setItem(c,"collapsed")},h=function(a,c){a.setAttribute(d,"dismissed"),b.classList.remove(c),localStorage.setItem(c,"dismissed")},i=function(){Object.keys(localStorage).forEach(function(a){"smith-alert-id-"===a.substring(0,12)&&localStorage.removeItem(a)})};(function(a){var b;try{b=window[a+""];return b.setItem("__storage_test__","__storage_test__"),b.removeItem("__storage_test__"),!0}catch(a){return a instanceof DOMException&&(22===a.code||1014===a.code||"QuotaExceededError"===a.name||"NS_ERROR_DOM_QUOTA_REACHED"===a.name)&&b&&0!==b.length}})("localStorage")&&c.forEach(function(a){var c=a.getAttribute("data-alert-id"),e=a.getAttribute("data-alert-type"),j=a.querySelector(".alert__toggle"),k=localStorage.getItem(c);null==k&&(i(),b.classList.add(c)),"dismissed"===k?(h(a,c),b.classList.remove(c)):"collapsed"===k?g(a,j,c):f(a,j,c),j.addEventListener("click",function(){return"emergency"===e?"expanded"===a.getAttribute(d)?g(a,j,c):f(a,j,c):h(a,c)})})}};
+/******/ })()
+;
+//# sourceMappingURL=alert.js.map
