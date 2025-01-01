@@ -143,3 +143,4 @@ drush/*
 # Enviromennt load
 # load.environment.php
 .vscode/settings.json
+node_modules/
