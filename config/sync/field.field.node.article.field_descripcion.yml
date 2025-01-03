@@ -1,0 +1,19 @@
+uuid: a686b48e-35fe-4b70-9dfc-f628bc055769
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descripcion
+    - node.type.article
+id: node.article.field_descripcion
+field_name: field_descripcion
+entity_type: node
+bundle: article
+label: Descripcion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
