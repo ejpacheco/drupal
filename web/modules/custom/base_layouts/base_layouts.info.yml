@@ -1,0 +1,6 @@
+name: 'Base Layouts'
+description: 'Proporciona layouts personalizados para utilizar en páginas flexibles.'
+package: CUSTOM
+type: module
+core: 8.x
+core_version_requirement: ^10 || ^11
