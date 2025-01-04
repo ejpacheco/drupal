@@ -2,5 +2,46 @@
 
 /**
  * @file
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
  * Contains base_layouts.module.
  */
+
+/**
+ *
+ */
+function layouts_custom_form_layout_builder_configure_section_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $formObject = $form_state->getFormObject();
+  $layout = $formObject->getCurrentLayout();
+  $config = $layout->getConfiguration();
+  // Define the options for the select field.
+  $options = [
+    'option_1' => t('Option 1'),
+    'option_2' => t('Option 2'),
+    'option_3' => t('Option 3'),
+  ];
+
+  $form['layout_settings']['margin_top'] = [
+    '#type' => 'select',
+    '#title' => t('Margen Superior'),
+    '#description' => t('Choose an option from the dropdown.'),
+    '#options' => $options,
+    '#default_value' => $config['margin_top'] ?? '',
+  ];
+  array_unshift($form['#submit'], '_layout_custom_submit_form');
+}
+
+/**
+ *
+ */
+function _layout_custom_submit_form(array &$form, FormStateInterface $form_state) {
+  $formObject = $form_state->getFormObject();
+  $config = $formObject->getCurrentLayout()->getConfiguration();
+  $margin_top = $form_state->getValue(['layout_settings', 'margin_top']);
+  $config['margin_top'] = $margin_top;
+  $formObject->getCurrentLayout()->setConfiguration($config);
+}
