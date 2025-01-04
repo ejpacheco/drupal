@@ -31,6 +31,7 @@ module:
   image: 0
   language: 0
   layout_builder: 0
+  layout_custom_section_classes: 0
   layout_discovery: 0
   layouts_custom: 0
   link: 0
