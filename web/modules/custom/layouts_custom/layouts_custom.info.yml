@@ -1,0 +1,6 @@
+name: 'Layouts Custom'
+description: 'Opciones de Layout'
+package: CUSTOM
+type: module
+core: 8.x
+core_version_requirement: ^10 || ^11

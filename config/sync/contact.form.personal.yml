@@ -1,4 +1,4 @@
-uuid: 5f4b93a7-2a29-443a-b489-36592f97f5f3
+uuid: e753566d-f4db-4b0d-bfd4-3b1e4514b988
 langcode: es
 status: true
 dependencies: {  }
@@ -9,5 +9,5 @@ label: 'Formulario de contacto personal'
 recipients: {  }
 reply: ''
 weight: 0
-message: '<p>Su mensaje ha sido enviado.</p>'
+message: 'Su mensaje ha sido enviado.'
 redirect: ''

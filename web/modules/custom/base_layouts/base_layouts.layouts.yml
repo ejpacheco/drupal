@@ -1,0 +1,64 @@
+base_layouts_one_column:
+  label: '1 Columna'
+  path: layouts/onecol
+  template: layout-fsfb-onecol
+  library: base_layouts/layout
+  category: 'FSFB'
+  class: '\Drupal\base_layouts\Plugin\Layout\LayoutOneColumn'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Main content
+base_layouts_two_column:
+  label: '2 Columnas'
+  path: layouts/twocol
+  template: layout-fsfb-twocol
+  library: base_layouts/layout
+  category: 'FSFB'
+  class: '\Drupal\base_layouts\Plugin\Layout\LayoutTwoColumn'
+  default_region: first
+  icon_map:
+    - [first, second]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+base_layouts_three_column:
+  label: '3 Columnas'
+  path: layouts/threecol
+  template: layout-fsfb-threecol
+  library: base_layouts/layout
+  category: 'FSFB'
+  class: '\Drupal\base_layouts\Plugin\Layout\LayoutThreeColumn'
+  default_region: first
+  icon_map:
+    - [first, second, third]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+base_layouts_fofsfb_column:
+  label: '4 Columnas'
+  path: layouts/fourcol
+  template: layout-fsfb-fourcol
+  library: base_layouts/layout
+  category: 'FSFB'
+  class: '\Drupal\base_layouts\Plugin\Layout\LayoutFourColumn'
+  default_region: first
+  icon_map:
+    - [first, second, third, fourth]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth

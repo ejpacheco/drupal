@@ -1,0 +1,92 @@
+@use "../../../00-base/00-defaults/02-breakpoints" as *;
+@use "../../../00-base/01-colors/colors" as *;
+
+/* LI */
+.main-menu__item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid;
+
+  @include breakpoint("medium") {
+    display: inline-block;
+    border-top: none;
+
+    /* Only top level */
+    &:not(.main-menu__item--sub):focus-within,
+    &:not(.main-menu__item--sub):hover {
+      background-color: clr(accent, bright);
+      color: clr(highlight, bright);
+
+      > .main-menu__link {
+        color: clr(highlight);
+
+        &:hover,
+        &:focus {
+          color: clr(highlight, bright);
+        }
+      }
+
+      & > .main-menu--sub {
+        display: block;
+      }
+    }
+  }
+}
+
+/* Expand Button */
+.expand-sub {
+  position: relative;
+  display: block;
+  width: 20%;
+  background-color: clr(accent, bright);
+  color: clr(text, inverse);
+  cursor: pointer;
+
+  @include breakpoint("medium") {
+    display: none;
+  }
+
+  /* Down triangle */
+  &::after {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    content: "";
+    display: block;
+    margin-right: -12px;
+    margin-top: -6px;
+    width: 0;
+    border: 15px solid;
+    border-bottom-color: transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+  }
+
+  /* See main-menu.js */
+  &--open {
+    background-color: clr(accent, bright);
+    color: clr(neutral);
+
+    &::after {
+      margin-top: -20px;
+      border-top-color: transparent;
+      border-bottom: 15px solid;
+    }
+  }
+}
+
+/*
+ * Sub Navigation
+ */
+
+/* LI (Nested) */
+.main-menu__item--sub {
+  @include breakpoint("medium") {
+    display: block;
+
+    &:not(:first-child) {
+      border-top: 1px solid clr(highlight);
+    }
+  }
+}

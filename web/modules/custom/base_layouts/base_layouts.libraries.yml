@@ -1,0 +1,16 @@
+# CSS libraries for Layout plugins.
+core:
+  version: VERSION
+  css:
+    component:
+      css/base-layout.css: {}
+      css/base-layout.core.css: {}
+      css/base-layout.lb.css: {}
+      css/base-layout.link.css: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - field_group/element.horizontal_tabs

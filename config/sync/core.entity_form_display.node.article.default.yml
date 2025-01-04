@@ -1,17 +1,14 @@
-uuid: c7d42220-3ec5-4649-a4b4-5b4e1ec56921
+uuid: 3d922bb9-e474-4219-b382-9741ffe61379
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.article.field_descripcion
-    - field.field.node.article.field_file
-    - field.field.node.article.field_imagen
+    - field.field.node.article.field_image
     - node.type.article
   module:
-    - file
     - media_library
     - path
-    - text
 _core:
   default_config_hash: ewbd6G2uX456-bgwseM2Q-KQG3RkASoyHmTh-XR3oLU
 id: node.article.default
@@ -26,21 +23,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_descripcion:
-    type: text_textarea
+    type: string_textarea
     weight: 122
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_file:
-    type: file_generic
-    weight: 123
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  field_imagen:
+  field_image:
     type: media_library_widget
     weight: 121
     region: content

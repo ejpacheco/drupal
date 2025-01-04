@@ -1,4 +1,4 @@
-uuid: 9b1f3780-eb1d-461a-903b-0472067c943a
+uuid: de5663c4-4902-447a-a881-d91c0d7e0068
 langcode: en
 status: true
 dependencies:
@@ -18,8 +18,8 @@ content:
     type: oembed
     label: hidden
     settings:
-      max_width: 400
-      max_height: 400
+      max_width: 0
+      max_height: 0
       loading:
         attribute: lazy
     third_party_settings: {  }

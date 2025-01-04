@@ -1,4 +1,4 @@
-uuid: bb7232a2-7300-4453-8e50-e5534f199b23
+uuid: 802efd64-e278-46d2-9158-f95a32ae18bf
 langcode: es
 status: true
 dependencies: {  }
@@ -7,8 +7,8 @@ _core:
 id: feedback
 label: 'Comentarios sobre el sitio web'
 recipients:
-  - drupal@gmail.com
+  - drupal@drupal.com
 reply: ''
 weight: 0
-message: '<p>Su mensaje ha sido enviado.</p>'
+message: 'Su mensaje ha sido enviado.'
 redirect: ''

@@ -1,0 +1,6 @@
+services:
+  base_layouts.layout_choose_controller_alter:
+    class: Drupal\base_layouts\EventSubscriber\LayoutBuilderBrowserEventSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }
