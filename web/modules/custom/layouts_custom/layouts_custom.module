@@ -43,6 +43,30 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
     'mx-3' => t('L'),
   ];
 
+  $options_padding_top = [
+    '' => t('Seleccione'),
+    'pt-0' => t('Ninguno'),
+    'pt-1' => t('S'),
+    'pt-2' => t('M'),
+    'pt-3' => t('L'),
+  ];
+
+  $options_padding_bottom = [
+    '' => t('Seleccione'),
+    'pb-0' => t('Ninguno'),
+    'pb-1' => t('S'),
+    'pb-2' => t('M'),
+    'pb-3' => t('L'),
+  ];
+
+  $options_padding_left_right = [
+    '' => t('Seleccione'),
+    'py-0' => t('Ninguno'),
+    'px-1' => t('S'),
+    'px-2' => t('M'),
+    'px-3' => t('L'),
+  ];
+
   $form['margin_settings'] = [
     '#type' => 'details',
     '#title' => t('Margen'),
@@ -70,6 +94,33 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
     '#default_value' => $config['margin_settings']['margin_left_right'] ?? '',
   ];
 
+  $form['padding_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Relleno'),
+    '#weight' => 0,
+  ];
+
+  $form['padding_settings']['padding_top'] = [
+    '#type' => 'select',
+    '#title' => t('Superior'),
+    '#options' => $options_padding_top,
+    '#default_value' => $config['padding_settings']['padding_top'] ?? '',
+  ];
+
+  $form['padding_settings']['padding_bottom'] = [
+    '#type' => 'select',
+    '#title' => t('Inferior'),
+    '#options' => $options_padding_bottom,
+    '#default_value' => $config['padding_settings']['padding_bottom'] ?? '',
+  ];
+
+  $form['padding_settings']['padding_left_right'] = [
+    '#type' => 'select',
+    '#title' => t('Izquierda - Derecha'),
+    '#options' => $options_padding_left_right,
+    '#default_value' => $config['padding_settings']['padding_left_right'] ?? '',
+  ];
+
   array_unshift($form['#submit'], '_layout_custom_submit_form');
 }
 
@@ -80,7 +131,9 @@ function _layout_custom_submit_form(array &$form, FormStateInterface $form_state
   $formObject = $form_state->getFormObject();
   $config = $formObject->getCurrentLayout()->getConfiguration();
   $margin_settings = $form_state->getValue(['margin_settings']);
+  $padding_settings = $form_state->getValue(['padding_settings']);
   $config['margin_settings'] = $margin_settings;
+  $config['padding_settings'] = $padding_settings;
   $formObject->getCurrentLayout()->setConfiguration($config);
 }
 
@@ -88,10 +141,14 @@ function _layout_custom_submit_form(array &$form, FormStateInterface $form_state
  *
  */
 function layouts_custom_preprocess_layout(&$variables) {
-
   $margin_settings = $variables["settings"]["margin_settings"] ?? '';
   foreach ($margin_settings as $ms) {
     $variables["attributes"]["class"][] = $ms;
+  }
+
+  $padding_settings = $variables["settings"]["padding_settings"] ?? '';
+  foreach ($padding_settings as $ps) {
+    $variables["attributes"]["class"][] = $ps;
   }
 
 }
