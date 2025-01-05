@@ -18,20 +18,43 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
   $formObject = $form_state->getFormObject();
   $layout = $formObject->getCurrentLayout();
   $config = $layout->getConfiguration();
-  // Define the options for the select field.
-  $options = [
-    'option_1' => t('Option 1'),
-    'option_2' => t('Option 2'),
-    'option_3' => t('Option 3'),
+
+  $options_margin_top = [
+    '' => t('Seleccione'),
+    'mt-0' => t('Ninguno'),
+    'mt-1' => t('S'),
+    'mt-2' => t('M'),
+    'mt-3' => t('L'),
   ];
 
-  $form['layout_settings']['margin_top'] = [
+  $options_margin_bottom = [
+    '' => t('Seleccione'),
+    'mb-0' => t('Ninguno'),
+    'mb-1' => t('S'),
+    'mb-2' => t('M'),
+    'mb-3' => t('L'),
+  ];
+
+  $form['margin_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Margen'),
+    '#weight' => 0,
+  ];
+
+  $form['margin_settings']['margin_top'] = [
     '#type' => 'select',
     '#title' => t('Margen Superior'),
-    '#description' => t('Choose an option from the dropdown.'),
-    '#options' => $options,
+    '#options' => $options_margin_top,
     '#default_value' => $config['margin_top'] ?? '',
   ];
+
+  $form['margin_settings']['margin_bottom'] = [
+    '#type' => 'select',
+    '#title' => t('Margen Inferior'),
+    '#options' => $options_margin_bottom,
+    '#default_value' => $config['margin_bottom'] ?? '',
+  ];
+
   array_unshift($form['#submit'], '_layout_custom_submit_form');
 }
 
@@ -41,7 +64,19 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
 function _layout_custom_submit_form(array &$form, FormStateInterface $form_state) {
   $formObject = $form_state->getFormObject();
   $config = $formObject->getCurrentLayout()->getConfiguration();
-  $margin_top = $form_state->getValue(['layout_settings', 'margin_top']);
-  $config['margin_top'] = $margin_top;
+  $margin_settings = $form_state->getValue(['margin_settings']);
+  $config['margin_settings'] = $margin_settings;
   $formObject->getCurrentLayout()->setConfiguration($config);
+}
+
+/**
+ *
+ */
+function layouts_custom_preprocess_layout(&$variables) {
+
+  $margin_settings = $variables["settings"]["margin_settings"] ?? '';
+  foreach ($margin_settings as $ms) {
+    $variables["attributes"]["class"][] = $ms;
+  }
+
 }
