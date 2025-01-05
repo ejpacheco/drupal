@@ -70,7 +70,7 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
   $form['margin_settings'] = [
     '#type' => 'details',
     '#title' => t('Margen'),
-    '#weight' => 0,
+    '#weight' => -1,
   ];
 
   $form['margin_settings']['margin_top'] = [
@@ -97,7 +97,7 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
   $form['padding_settings'] = [
     '#type' => 'details',
     '#title' => t('Relleno'),
-    '#weight' => 0,
+    '#weight' => -1,
   ];
 
   $form['padding_settings']['padding_top'] = [
@@ -121,6 +121,24 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
     '#default_value' => $config['padding_settings']['padding_left_right'] ?? '',
   ];
 
+  $form['style_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Estilos'),
+    '#weight' => -1,
+  ];
+
+  $form['style_settings']['classes_custom'] = [
+    '#type' => 'textfield',
+    '#title' => t('Clase'),
+    '#default_value' => $config['style_settings']['classes_custom'] ?? '',
+  ];
+
+  $form['style_settings']['id'] = [
+    '#type' => 'textfield',
+    '#title' => t('ID'),
+    '#default_value' => $config['style_settings']['id'] ?? '',
+  ];
+
   array_unshift($form['#submit'], '_layout_custom_submit_form');
 }
 
@@ -132,8 +150,10 @@ function _layout_custom_submit_form(array &$form, FormStateInterface $form_state
   $config = $formObject->getCurrentLayout()->getConfiguration();
   $margin_settings = $form_state->getValue(['margin_settings']);
   $padding_settings = $form_state->getValue(['padding_settings']);
+  $style_settings = $form_state->getValue(['style_settings']);
   $config['margin_settings'] = $margin_settings;
   $config['padding_settings'] = $padding_settings;
+  $config['style_settings'] = $style_settings;
   $formObject->getCurrentLayout()->setConfiguration($config);
 }
 
@@ -142,13 +162,27 @@ function _layout_custom_submit_form(array &$form, FormStateInterface $form_state
  */
 function layouts_custom_preprocess_layout(&$variables) {
   $margin_settings = $variables["settings"]["margin_settings"] ?? '';
-  foreach ($margin_settings as $ms) {
-    $variables["attributes"]["class"][] = $ms;
+  if ($margin_settings) {
+    foreach ($margin_settings as $ms) {
+      $variables["attributes"]["class"][] = $ms;
+    }
   }
 
   $padding_settings = $variables["settings"]["padding_settings"] ?? '';
-  foreach ($padding_settings as $ps) {
-    $variables["attributes"]["class"][] = $ps;
+  if ($padding_settings) {
+    foreach ($padding_settings as $ps) {
+      $variables["attributes"]["class"][] = $ps;
+    }
+  }
+
+  $classes_custom = $variables["settings"]["style_settings"]["classes_custom"] ?? '';
+  if ($classes_custom) {
+    $variables["attributes"]["class"][] = $classes_custom;
+  }
+
+  $id_custom = $variables["settings"]["style_settings"]["id"] ?? '';
+  if ($id_custom) {
+    $variables["attributes"]["id"][] = $id_custom;
   }
 
 }
