@@ -35,6 +35,14 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
     'mb-3' => t('L'),
   ];
 
+  $options_left_right = [
+    '' => t('Seleccione'),
+    'mx-0' => t('Ninguno'),
+    'mx-1' => t('S'),
+    'mx-2' => t('M'),
+    'mx-3' => t('L'),
+  ];
+
   $form['margin_settings'] = [
     '#type' => 'details',
     '#title' => t('Margen'),
@@ -43,16 +51,23 @@ function layouts_custom_form_layout_builder_configure_section_alter(&$form, Form
 
   $form['margin_settings']['margin_top'] = [
     '#type' => 'select',
-    '#title' => t('Margen Superior'),
+    '#title' => t('Superior'),
     '#options' => $options_margin_top,
-    '#default_value' => $config['margin_top'] ?? '',
+    '#default_value' => $config['margin_settings']['margin_top'] ?? '',
   ];
 
   $form['margin_settings']['margin_bottom'] = [
     '#type' => 'select',
-    '#title' => t('Margen Inferior'),
+    '#title' => t('Inferior'),
     '#options' => $options_margin_bottom,
-    '#default_value' => $config['margin_bottom'] ?? '',
+    '#default_value' => $config['margin_settings']['margin_bottom'] ?? '',
+  ];
+
+  $form['margin_settings']['margin_left_right'] = [
+    '#type' => 'select',
+    '#title' => t('Izquierda - Derecha'),
+    '#options' => $options_left_right,
+    '#default_value' => $config['margin_settings']['margin_left_right'] ?? '',
   ];
 
   array_unshift($form['#submit'], '_layout_custom_submit_form');
