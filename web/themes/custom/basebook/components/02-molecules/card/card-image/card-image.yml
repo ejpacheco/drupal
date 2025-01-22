@@ -1,0 +1,7 @@
+# card-image.yml
+card__image__src: "https://www.w3schools.com/w3images/avatar2.png"
+card__image__alt: "Card image"
+card__heading: "card titulo"
+card__body: "body"
+card__button__url: "http://www.w3schools.com"
+card__button__content: "texto"

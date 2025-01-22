@@ -15,9 +15,23 @@
 {% set button__attributes = button__attributes|merge({
   'class': bem(button__base_class, button__modifiers, button__blockname, button__additional_classes),
 }) %}
+{% if button_url %}
+	{% embed '@atoms/links/link/link.twig' with {
+    link_base_class: button__base_class,
+    link_blockname: button__base__class,
+    link_modifiers:button__modifiers,
+    link_url: button_url,
+  }
+  %}
+		{% block link_content %}
+			{{button__content}}
+		{% endblock %}
+	{% endembed %}
 
-<button {{ add_attributes(button__attributes) }}>
-  {% block button__content %}
-    {{ button__content }}
-  {% endblock %}
-</button>
+{% else %}
+	<button {{ add_attributes(button__attributes) }}>
+		{% block button__content %}
+			{{ button__content }}
+		{% endblock %}
+	</button>
+{% endif %}
