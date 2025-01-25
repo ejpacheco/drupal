@@ -1,4 +1,4 @@
 button__content: 'Alternative Button'
 button_url: '#'
-button_modifiers:
+button__modifiers:
   - 'alt'
