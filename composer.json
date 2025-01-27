@@ -29,6 +29,7 @@
         "drupal/gin_toolbar": "^1.0",
         "drupal/layout_custom_section_classes": "^2.0",
         "drupal/menu_item_extras": "^3.1",
+        "drupal/mercury_editor": "^2.2",
         "drupal/paragraphs": "^1.18",
         "drupal/webform": "^6.3@alpha",
         "drush/drush": "^13.3"
